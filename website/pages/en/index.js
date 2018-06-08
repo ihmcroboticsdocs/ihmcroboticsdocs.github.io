@@ -133,7 +133,6 @@ class Index extends React.Component {
         <div className="mainContainer">
           <LearnHow />
           <TryOut />
-          <Showcase language={language} />
         </div>
       </div>
     );

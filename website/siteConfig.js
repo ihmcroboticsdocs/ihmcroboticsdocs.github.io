@@ -48,8 +48,8 @@ const siteConfig = {
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/runnin-man-logo.png',
-  footerIcon: 'img/ihmc-logo.png',
+  headerIcon: 'img/running-man-logo.png',
+  footerIcon: 'img/running-man-logo.png',
   favicon: 'img/favicon.png',
 
   /* colors for website */

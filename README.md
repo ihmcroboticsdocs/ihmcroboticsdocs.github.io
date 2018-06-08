@@ -2,6 +2,8 @@
 Website for IHMC Robotics Open Source Software Documentation
 
 How to publish changes onto the website:
+- Commit and push all local changes to GitHub
+- cd into the website directory (w the package.json file) of the repo
 - Run this script from the command-line:
   GIT_USER=<GIT_USER> \
   CURRENT_BRANCH=master \

@@ -38,10 +38,12 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: 'doc1', label: 'Docs'},
-    {doc: 'doc4', label: 'API'},
-    {'http://robots.ihmc.us/', label: 'About'},
-    {blog: true, label: 'Blog'},
+    {doc: 'doc1', label: 'Quick Start'},
+    {doc: 'doc4', label: 'Docs'},
+    {
+      href: 'http://robots.ihmc.us/',
+      label: 'About',
+    },
   ],
 
   // If you have users set above, you add it here:

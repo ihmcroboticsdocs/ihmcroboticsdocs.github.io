@@ -26,6 +26,7 @@ const siteConfig = {
       href: 'http://robots.ihmc.us/',
       label: 'About',
     },
+    {blog: true, label: 'Blog'},
   ],
 
   // If you have users set above, you add it here:

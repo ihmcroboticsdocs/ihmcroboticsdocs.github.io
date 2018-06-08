@@ -48,7 +48,7 @@ const siteConfig = {
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/ihmc-robotics-white.png',
+  headerIcon: 'img/runnin-man-logo.png',
   footerIcon: 'img/ihmc-logo.png',
   favicon: 'img/favicon.png',
 

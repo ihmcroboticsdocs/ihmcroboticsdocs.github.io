@@ -5,9 +5,10 @@ sidebar_label: Create the ValkyrieDemo Class
 
 Once GradleProject has been imported into IntelliJ IDEA, the project window should open.
 
-![new project window](/resources/images/quickstart/intellij/new-project-view.png)
+![new project window](/img/quickstart/intellij/new-project-view.png)
 
-# Open the "Gradle projects" Tool Window
+<br/> 
+### Open the "Gradle projects" Tool Window
 
 #### 1. Hide/Show Tools tabs
 
@@ -23,23 +24,25 @@ Select the triangle next to `Dependencies` in the "Gradle projects" tool window.
 
 You can hide/show the "Gradle projects" tool window by selecting the `Gradle` tab on the right.
 
-# Create a New Class to Run the Valkyrie Simulation
+<br/> 
+### Create a New Class to Run the Valkyrie Simulation
 
 Java classes are organized by "packages". Many IHMC packages start with `us.ihmc`, you can use your organization, a personal website, or whatever you'd like as your package. Here we're going to use `us.ihmc.demo` as the package, and `ValkyrieDemo` as the name of the class. 
 
 In the project tool window on the right, right click on the `java` folder, and select `Java Class` under the `New` menu.
 
-![create new class](/resources/images/quickstart/intellij/select-new-java-class.png)
+![create new class](/img/quickstart/intellij/select-new-java-class.png)
 
 Enter `us.ihmc.demo.ValkyrieDemo` for the `Name` field and select `OK`.
 
-![create new class](/resources/images/quickstart/intellij/create-new-class.png)
+![create new class](/img/quickstart/intellij/create-new-class.png)
 
-# ValkyrieDemo Class
+<br/> 
+### ValkyrieDemo Class
 
 You should now see a skeleton of your ValkyrieDemo class.  Replace the skeleton text with the following java source code:
 
-{% highlight java %}
+```java
 package us.ihmc.demo;
 
 import us.ihmc.avatar.DRCFlatGroundWalkingTrack;
@@ -83,4 +86,4 @@ public class ValkyrieDemo
       SimulationConstructionSet scs = flatGroundWalkingTrack.getSimulationConstructionSet(); // Construct the SCS instance
    }
 }
-{% endhighlight %}
+```

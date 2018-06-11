@@ -3,39 +3,41 @@ title: Import GradleProject
 sidebar_label: Import GradleProject
 ---
 
-# Gradle Plugin Support
+<br/> 
+### Gradle Plugin Support
 
 IntelliJ IDEA supports Gradle SDK version 1.2 and later, and the Gradle plugin is bundled with IntelliJ IDEA and activated by default.  If the plugin is not activated, enable it on the `Plugins` tab of the `File > Settings` (Windows and Ubuntu) or `IntelliJ IDEA > Preferences`(OSX) menu.
 
 You can find more detailed information about Gradle and IntelliJ on [IntelliJ's website](https://www.jetbrains.com/help/idea/2016.1/getting-started-with-gradle.html). 
 
-# Opening/Importing GradleProject
+<br/>
+### Opening/Importing GradleProject
 
 If you have just started IntelliJ IDEA, you will be presented with the Welcome screen.
 
-![welcome screen](/resources/images/quickstart/intellij/welcomeScreen.png)
+![welcome screen](/img/quickstart/intellij/welcomeScreen.png)
 
 Choose `Open` from the Welcome screen, or if IntelliJ IDEA is already open choose `File/Open` from the menu bar.
 
-![import build gradle project](/resources/images/quickstart/intellij/open-build-gradle.png)
+![import build gradle project](/img/quickstart/intellij/open-build-gradle.png)
 
 From the `Open File or Project` dialog traverse the directory structure and select the `GradleProject` folder or the `build.gradle` file and select `OK`.
 
 There are several things to note in the next dialog, which have been marked:
 
-![import build gradle project](/resources/images/quickstart/intellij/import-project-from-gradle.png)
+![import build gradle project](/img/quickstart/intellij/import-project-from-gradle.png)
 
 1. We highly recommend **unchecking** the option for using separate modules per source set
 2. If you are using a local Gradle distribution, you will need to identify the Gradle Home; typically this is the directory *above* the `bin` directory that contains the `gradle` executable. In this example, using Homebrew for OS X, we identify `/usr/local/opt/gradle/libexec`; if you were to look inside of this directory you would see `/usr/local/opt/gradle/libexec/bin/gradle`. On other operating systems this location may change; for example, in Ubuntu, you may need to traverse several symlinks due to the way apt-get installed packages are configured in order to find the actual Gradle Home.
 3. If this is your first time launching IntelliJ IDEA, the "Gradle JVM" option will be empty and will make allusions to Java Home. Another option is to have already added a "Project SDK" to IntelliJ using the Wizard. This can be done **prior to importing the build.gradle** by selecting `Configure -> Project Defaults -> Structure` and using the `New` button to add a JDK installation to IntelliJ IDEA:
 
-![configure project structure](/resources/images/quickstart/intellij/project-structure.png)
+![configure project structure](/img/quickstart/intellij/project-structure.png)
 
-![add sdk](/resources/images/quickstart/intellij/add-sdk.png)
+![add sdk](/img/quickstart/intellij/add-sdk.png)
 
 Wait few minutes while IntelliJ IDEA imports GradleProject and obtains the dependencies specified in the `build.gradle` file:
 
-![downloading dependencies](/resources/images/quickstart/intellij/import-build-gradle.png)
+![downloading dependencies](/img/quickstart/intellij/import-build-gradle.png)
 
 
 

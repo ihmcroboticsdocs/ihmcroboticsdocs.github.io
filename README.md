@@ -1,8 +1,10 @@
 # ihmcroboticsdocs.github.io
 Website for IHMC Robotics Open Source Software Documentation
 
-To view changes locally:
-- Run the script:
+Making changes locally:
+- To generate the html files:
+yarn run build
+- To view changes:
 npm start
 - Load site at http://localhost:3000/
 

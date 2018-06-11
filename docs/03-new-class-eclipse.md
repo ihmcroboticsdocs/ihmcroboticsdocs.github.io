@@ -3,29 +3,31 @@ title: Create The ValkyrieDemo Class
 sidebar_label: Create the ValkyrieDemo Class
 ---
 
-# Open the Java Perspective
+<br/> 
+ ### Open the Java Perspective
 
 You'll want to have the Java Perspective open before you create and edit your class.  After importing the Gradle Project you are often left with the Gradle Tasks window open and the Java Perspective minimized. Click the maximize perspective button on the right of the Eclipse IDE window to expand the Java Perspective.
 
-![Wizard Search](/resources/images/quickstart/eclipseAfterGradleImport.png)
+![Wizard Search](/img/quickstart/eclipseAfterGradleImport.png)
 
 Once expanded you should see the `GradleProject` selected on the left and `Java` on the top right.
 
-![Wizard Search](/resources/images/quickstart/eclipseJavaPerspective.png)
+![Wizard Search](/img/quickstart/eclipseJavaPerspective.png)
 
-# Create a New Class to Run the Valkyrie Simulation
+<br/> 
+### Create a New Class to Run the Valkyrie Simulation
 
 Press `Ctrl+N` (`Cmd+N` on OS X) to bring up the "New" wizard, type out "Class" to filter down to the "Class" option, and then click `Next`.
 
-![Wizard Search](/resources/images/quickstart/eclipseNewFileWizard.png)
+![Wizard Search](/img/quickstart/eclipseNewFileWizard.png)
 
 Java classes are organized by "packages". Many IHMC packages start with `us.ihmc`, you can use your organization, a personal website, or whatever you'd like as your package. Here we're going to use `us.ihmc.demo` as the package, and `ValkyrieDemo` as the name of the class. Fill out this information and click `Finish`:
 
-![New Class Wizard](/resources/images/quickstart/eclipseNewClassWizard.png)
+![New Class Wizard](/img/quickstart/eclipseNewClassWizard.png)
 
 Fill in the class to look like the following:
 
-{% highlight java %}
+```java
 package us.ihmc.demo;
 
 import us.ihmc.avatar.DRCFlatGroundWalkingTrack;
@@ -69,4 +71,4 @@ public class ValkyrieDemo
       SimulationConstructionSet scs = flatGroundWalkingTrack.getSimulationConstructionSet(); // Construct the SCS instance
    }
 }
-{% endhighlight %}
+```

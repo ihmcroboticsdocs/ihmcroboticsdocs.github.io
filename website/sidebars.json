@@ -8,21 +8,13 @@
     "First Category": ["doc4", "doc5"]
   },
   "eclipsequickstart": {
-    "Quick Start": ["quickstarteclipse"],
-    "Prerequisites": ["00-pre-reqs-eclipse"],
-    "Create your First GradleProject": ["01-project-eclipse"],
-    "Import GradleProject": ["02-setup-gradle-project-eclipse"],
-    "Create the ValkyrieDemo Class": ["03-new-class-eclipse"],
-    "ValkyrieDemo Run Configuration": ["04-run-valkyrie-eclipse"],
-    "Run ValkyrieDemo": ["05-run-valkyrie-scs"]
+    "Quick Start (Eclipse)": ["00-pre-reqs-eclipse", "01-project-eclipse", "02-setup-gradle-project-eclipse",
+    "03-new-class-eclipse", "ValkyrieDemo Run Configuration", "04-run-valkyrie-eclipse",
+    "05-run-valkyrie-scs"]
   },
   "intellijquickstart": {
-    "Quick Start": ["quickstartintellij"],
-    "Prerequisites": ["00-pre-reqs-intellij"],
-    "Create your First GradleProject": ["01-project-intellij"],
-    "Import GradleProject": ["02-setup-gradle-project-intellij"],
-    "Create the ValkyrieDemo Class": ["03-new-class-intellij"],
-    "ValkyrieDemo Run Configuration": ["04-run-valkyrie-intellij"],
-    "Run ValkyrieDemo": ["05-run-valkyrie-scs"]
+    "Quick Start (IntelliJ)": ["00-pre-reqs-intellij", "01-project-intellij",
+    "02-setup-gradle-project-intellij", "03-new-class-intellij",
+    "04-run-valkyrie-intellij", "05-run-valkyrie-scs-eclipse"]
   }
 }

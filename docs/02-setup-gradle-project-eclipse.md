@@ -15,14 +15,14 @@ The first time you launch Eclipse, it will ask you to choose your workspace. Not
 
 Select `File -> Import` to open the Import wizard, and select `Gradle Project` under `Gradle`:
 
-![Import Gradle Project](website/staticwebsite/static/img/quickstart/eclipseImportGradleProject.png)
+![Import Gradle Project](/website/static/website/static/img/quickstart/eclipseImportGradleProject.png)
 
 Now click `Next` to bring up the Buildship wizard:
 
-![Buildship welcome screen](website/static/img/quickstart/eclipseBuildshipWelcomeScreen.png)
+![Buildship welcome screen](/website/static/img/quickstart/eclipseBuildshipWelcomeScreen.png)
 
 Click `Next`, then click `Browse` next to the field for "Project root directory", and browse to and select the `GradleProject` directory that you created:
 
-![Select the GradleProject directory](website/static/img/quickstart/eclipseSelectGradleProjectDirectory.png)
+![Select the GradleProject directory](/website/static/img/quickstart/eclipseSelectGradleProjectDirectory.png)
 
 Click `Finish` to kick off the Gradle build. The Buildship plugin will run Gradle in order to generate the IDE-specific configuration files for managing the project via the Eclipse GUI. *This step may take a while*; Buildship must pull in some of the Gradle runtime, analyze the structure of the project (our structure is very simple), and download all of the artifacts required for `Valkyrie` to work, including `Valkyrie` itself.

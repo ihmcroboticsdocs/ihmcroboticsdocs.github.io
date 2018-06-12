@@ -19,5 +19,8 @@
   },
   "euclid": {
     "Documentation": ["euclidhome", "euclidjavadocs"]
+  },
+   "euclid-core": {
+    "Documentation": ["euclid-core-home", "euclid-core-javadocs"]
   }
 }

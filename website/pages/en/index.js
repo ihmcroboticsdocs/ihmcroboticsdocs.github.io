@@ -58,7 +58,7 @@ const Logo = props => (
 
 const ProjectTitle = props => (
   <h2 className="projectTitle">
-    {siteConfig.title}
+    <img src={"http://static1.squarespace.com/static/508aeee9e4b0660daf192355/t/588674c4a5790a1d7cfe03e0/1528224095557/?format=1500w"} />
     <small>{siteConfig.tagline}</small>
   </h2>
 );
@@ -76,12 +76,12 @@ class HomeSplash extends React.Component {
     let language = this.props.language || '';
     return (
       <SplashContainer>
-        <Logo img_src={imgUrl('running-man-logo.png')} />
-        <div className="inner">
-          <ProjectTitle />
-          <PromoSection>
+      <Logo img_src={imgURL('ihmc-logo.png')} />
+      <div className="inner">
+        <ProjectTitle />
+        <PromoSection>
             <Button href={docUrl('https://github.com/ihmcrobotics', language)}>Github</Button>
-          </PromoSection>
+        </PromoSection>
         </div>
       </SplashContainer>
     );

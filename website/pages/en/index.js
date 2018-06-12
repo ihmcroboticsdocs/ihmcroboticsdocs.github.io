@@ -58,7 +58,7 @@ const Logo = props => (
 
 const ProjectTitle = props => (
   <h2 className="projectTitle">
-    <img src={"http://static1.squarespace.com/static/508aeee9e4b0660daf192355/t/588674c4a5790a1d7cfe03e0/1528224095557/?format=1500w"} />
+    <img src={"img/ihmc-logo-black.png"} />
     <small>{siteConfig.tagline}</small>
   </h2>
 );
@@ -76,7 +76,6 @@ class HomeSplash extends React.Component {
     let language = this.props.language || '';
     return (
       <SplashContainer>
-      <Logo img_src={imgURL('ihmc-logo.png')} />
       <div className="inner">
         <ProjectTitle />
         <PromoSection>
@@ -97,12 +96,37 @@ const Block = props => (
   </Container>
 );
 
+const TryOut = props => (
+  <Block id="try">
+    {[
+      {
+        content: (
+        'Our  [GitHub repository](https://github.com/ihmcrobotics) is part of the IHMC Robotics Open Source ' 
+        +'initiative which consists of providing open access to resources and '
+        +'knowledge that we have developed over the years for our fellow researchers, '
+        +'scientists, engineers, and hobbyists in an effort to advance the field of '
+        +'robotics.'
+        ),
+        image: imgUrl('ihmc-atlas.jpg'),
+        imageAlign: 'left',
+        title: 'Try it Out',
+      },
+    ]}
+  </Block>
+);
+
 const LearnHow = props => (
   <Block background="light">
     {[
       {
-        content: 'Talk about learning how to use this',
-        image: imgUrl('ihmc-logo.png'),
+        content: 'Our tools and algorithms are targeted at the many research labs' +
+         ' that are interested in perception and planning, high level control, '+
+          'operator interfaces, and other research areas, but do not have expertise '+
+           'in bipedal walking and whole body control. But also to control experts '+ 
+           'that are interested in developing robot simulations in java in a user '+ 
+           'friendly environment. [Get started](https://ihmcroboticsdocs.github.io/docs/quickstarthome.html) or view our [documentation](https://ihmcroboticsdocs.github.io/docs/docshome.html) to learn ' +
+           'more about our software.',
+        image: imgUrl('ihmc-software.png'),
         imageAlign: 'right',
         title: 'Learn How',
       },
@@ -110,18 +134,6 @@ const LearnHow = props => (
   </Block>
 );
 
-const TryOut = props => (
-  <Block id="try">
-    {[
-      {
-        content: 'Talk about trying this out',
-        image: imgUrl('ihmc-robotics-white.png'),
-        imageAlign: 'left',
-        title: 'Try it Out',
-      },
-    ]}
-  </Block>
-);
 
 class Index extends React.Component {
   render() {
@@ -131,8 +143,8 @@ class Index extends React.Component {
       <div>
         <HomeSplash language={language} />
         <div className="mainContainer">
-          <LearnHow />
-          <TryOut />
+        <LearnHow />
+          <TryOut/>
         </div>
       </div>
     );

@@ -33,7 +33,39 @@ class Footer extends React.Component {
               />
             )}
           </a>
-         
+         <div>
+            <h5>Docs</h5>
+            <a href={this.docUrl('quickstarthome.html', this.props.language)}>
+              Quick Start
+            </a>
+            <a href={this.docUrl('docshome.html', this.props.language)}>
+              Software Documentation
+            </a>
+          </div>
+          <div>
+            <h5>Community</h5>
+            <a href="https://github.com/ihmcrobotics">
+              GitHub
+            </a>
+            <a
+              href="https://www.facebook.com/TheIHMC"
+              target="_blank"
+              rel="noreferrer noopener">
+              Facebook
+            </a>
+            <a
+              href="https://twitter.com/ihmcrobotics"
+              target="_blank"
+              rel="noreferrer noopener">
+              Twitter
+            </a>
+             <a
+              href="https://www.youtube.com/user/DRCihmcRobotics"
+              target="_blank"
+              rel="noreferrer noopener">
+              YouTube
+            </a>
+          </div>
         </section>
         <section className="copyright">{this.props.config.copyright}</section>
       </footer>

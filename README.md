@@ -2,8 +2,6 @@
 Website for IHMC Robotics Open Source Software Documentation
 
 Making changes locally:
-- To generate the html files:
-yarn run build
 - To view changes:
 npm start
 - Load site at http://localhost:3000/
@@ -11,6 +9,8 @@ npm start
 How to publish changes onto the website:
 - Commit and push all local changes to GitHub
 - cd into the website directory (w the package.json file) of the repo
+- To generate the html files:
+yarn run build
 - Run this script from the command-line:
   GIT_USER=<GIT_USER> \
   CURRENT_BRANCH=master \

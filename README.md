@@ -1,27 +1,38 @@
 # ihmcroboticsdocs.github.io
 Website for IHMC Robotics Open Source Software Documentation
 
+To install Docusaurus on your computer  (if you are making website changes):
+- Clone the gihub repo (if you haven't done so) and cd into the directory
+- Run the command:
+npm install --global docusaurus-init
+
+To generate the html files from md:
+- yarn run build
+
+Note: This step is usually unnecessary because when you do yarn run start or publish changes to github, the html files should be built for you.
+
 Making changes locally:
 - To view changes:
-npm start
-- Load site at http://localhost:3000/
+yarn start
+- Load site at http://localhost:3000/ (it will automatically open up on your browser window)
 
 How to publish changes onto the website:
 - Commit and push all local changes to GitHub
 - cd into the website directory (w the package.json file) of the repo
-- To generate the html files:
-yarn run build
 - Run this script from the command-line:
   GIT_USER=<GIT_USER> \
-  CURRENT_BRANCH=master \
+  CURRENT_BRANCH=source \
   USE_SSH=true \
-  yarn run publish-gh-pages ( or 'npm run publish-gh-pages`)
-  
+  yarn run publish-gh-pages
+- Note: the current branch can be any branch that the relevant docs folder is in (except master since the website is published to master)
+
 Other things to note:
 - The Docs (all md files, as well as the md files that link to javadocs) are kept in the docs folder
 - All other webpages are in the pages folder of the website directory
 
-For more info: https://docusaurus.io/docs/en/installation
+Errors that may occur:
+- If you receive an error when trying to publish changes or loading the site locally, check your docusaurus version. Eg. I received a type error (utils.getPath is not a function), try running yarn upgrade docusaurus-init
+For more info: https://docusaurus.io/docs/en/installatio
 
 
 Framework so far:

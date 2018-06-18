@@ -17,9 +17,6 @@
     "02-setup-gradle-project-intellij", "03-new-class-intellij",
     "04-run-valkyrie-intellij", "05-run-valkyrie-scs"]
   },
-  "euclid": {
-    "Documentation": ["euclidhome", "euclidjavadocs"]
-  },
    "euclid-core": {
     "Documentation": ["euclid-core-home", "euclid-core-javadocs"]
   }

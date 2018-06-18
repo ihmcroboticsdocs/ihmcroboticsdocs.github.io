@@ -18,6 +18,6 @@
     "04-run-valkyrie-intellij", "05-run-valkyrie-scs"]
   },
    "euclid-core": {
-    "Documentation": ["euclid-core-home", "euclid-core-javadocs"]
+    "Euclid-Core": ["euclid-core-home", "euclid-core-javadocs"]
   }
 }

@@ -29,8 +29,6 @@
     "Introduction": "Introduction",
     "euclid-core-javadocs": "Javadocs",
     "Javadocs": "Javadocs",
-    "euclidhome": "Euclid",
-    "euclidjavadocs": "Javadocs",
     "doc4": "Other Document",
     "doc5": "Fifth Document",
     "quickstarthome": "Quick Start",
@@ -43,7 +41,10 @@
     "Second Category": "Second Category",
     "Quick Start (Eclipse)": "Quick Start (Eclipse)",
     "Quick Start (IntelliJ)": "Quick Start (IntelliJ)",
-    "Documentation": "Documentation"
+    "Euclid-Core": "Euclid-Core",
+    "Documentation": "Documentation",
+    "euclidhome": "Euclid",
+    "euclidjavadocs": "Javadocs"
   },
   "pages-strings": {
     "Help Translate|recruit community translators for your project": "Help Translate",

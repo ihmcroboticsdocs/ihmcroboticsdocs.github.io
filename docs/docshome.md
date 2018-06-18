@@ -4,7 +4,7 @@ title: Documentation
 ---
 <br/>
 
-- [Euclid](https://ihmcroboticsdocs.github.io/euclid/docs/euclidhome)
+- [Euclid](https://ihmcroboticsdocs.github.io/euclid)
 - [Euclid-Core](euclid-core-home.md)
 - [Simulation Construction Set](https://ihmcrobotics.github.io/documentation/#SCS)
 - [Control Algorithms API](https://ihmcrobotics.github.io/documentation/#Control%20Algorithms)

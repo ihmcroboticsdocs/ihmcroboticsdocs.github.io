@@ -1,7 +1,5 @@
 ---
-
 title: Installing Gradle
-
 ---
 
 ### Windows 

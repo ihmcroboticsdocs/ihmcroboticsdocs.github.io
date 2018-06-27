@@ -38,6 +38,22 @@ yarn start OR npm start OR docusaurus-start
 - If the publishing does not work, try running 'yarn install' and then 'yarn run build' in your website directory and then repeat the step above.
 - Ensure that in your GitHub repository settings, in GitHub pages the source is set to the gh-pages branch.
 
+VERSIONING:
+- If it is the FIRST TIME setting up your project repo's websitedocs folder with versioning, cd into your website directory and run the command:
+yarn examples versions
+
+This will generate a versions.js file which will generate a versions page listing all the site versions. Customize this file by entering your the URL where past versions of your project can be viewed and accessed as well as links to their docs and release notes.
+
+- If you are ready to finalize the documentation for a version, ensure that all your javadocs in the 'javadocs' folder in website/static are correct and the script replacestyles.sh has been run on them to adjust their css styling. Rename the javadocs folder to 'javadocs-version#' eg. 'javadocs-0.8.2' and make sure the link to the javadocs in projectnamejavadocs.md in your docs directory points to  https://ihmcroboticsdocs.github.io/projectreponame/javadocs-version#/overview-summary.html.
+- Run the command
+
+yarn run version <version-number>
+
+(for example yarn run version 0.8.3). This will preserve all documents in the docs directory and make them available as documentation for version 0.8.3. If this is the latest version, documents from this version will use the URL docs/doc1.html. For past versions, documents will use the URL docs/oldversionnumber/doc1.html.
+- Running the command again eg. yarn run version 0.9.0 will make version 0.9.0 the most recent set of documentation so documentation from version 0.8.3 will use the URL docs/0.8.3/doc1.html while documentation from version 0.9.0 will use docs/doc1.html.
+- Upon creating a version, only the files from the docs directory and the sidebar files (sidebars.json) will be stored as part of that version. Therefore, static files (such as those in the img and javadocs directory) will not be associated to a version automatically by docusaurus. This is why we rename the javadocs folder, once all javadocs are generated and the replacestyles.sh is run on it, to specify the version it belongs to. If changes are made to be incorporated into a new version, new javadocs must be generated into website/static/javadocs and replacestyles.sh must then be run before renaming to javadocs-version# and updating the link in projectnamejavadocs.md accordingly. After this is done, a new version can then be created by running the command stated above.
+- See the euclid and euclid-core repos for examples; visit https://docusaurus.io/docs/en/versioning for more help.
+
 Other things to note:
 - All documentation website related things are in the websitedocs folder of the project repo.
 - The Docs (all md files, as well as the md files that link to javadocs) are kept in the docs folder

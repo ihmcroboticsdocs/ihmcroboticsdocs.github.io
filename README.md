@@ -52,7 +52,8 @@ yarn run version <version-number>
 (for example yarn run version 0.8.3). This will preserve all documents in the docs directory and make them available as documentation for version 0.8.3. If this is the latest version, documents from this version will use the URL docs/doc1.html. For past versions, documents will use the URL docs/oldversionnumber/doc1.html.
 - Running the command again eg. yarn run version 0.9.0 will make version 0.9.0 the most recent set of documentation so documentation from version 0.8.3 will use the URL docs/0.8.3/doc1.html while documentation from version 0.9.0 will use docs/doc1.html.
 - Upon creating a version, only the files from the docs directory and the sidebar files (sidebars.json) will be stored as part of that version. Therefore, static files (such as those in the img and javadocs directory) will not be associated to a version automatically by docusaurus. This is why we rename the javadocs folder, once all javadocs are generated and the replacestyles.sh is run on it, to specify the version it belongs to. If changes are made to be incorporated into a new version, new javadocs must be generated into website/static/javadocs and replacestyles.sh must then be run before renaming to javadocs-version# and updating the link in projectnamejavadocs.md accordingly. After this is done, a new version can then be created by running the command stated above.
-- See the euclid and euclid-core repos for examples; visit https://docusaurus.io/docs/en/versioning for more help.
+- All the documentation for a specific version are saved in website/versioned_docs/version-version# and all the sidebar files to a specific version are saved in website/versioned_sidebars.
+- See the euclid repo for an example; visit https://docusaurus.io/docs/en/versioning for more information.
 
 Other things to note:
 - All documentation website related things are in the websitedocs folder of the project repo.

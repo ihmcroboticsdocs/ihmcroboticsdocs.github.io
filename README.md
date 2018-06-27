@@ -42,7 +42,7 @@ VERSIONING:
 - If it is the FIRST TIME setting up your project repo's websitedocs folder with versioning, cd into your website directory and run the command:
 yarn examples versions
 
-This will generate a versions.js file which will generate a versions page listing all the site versions. Customize this file by entering your the URL where past versions of your project can be viewed and accessed as well as links to their docs and release notes.
+This will generate a versions.js file which will generate a versions page listing all the site versions. Customize this file by entering your the URL where past versions of your project can be viewed and accessed as well as links to their docs and release notes. This page can be accessed at https://ihmcroboticsdocs.github.io/projectreponame/versions.html
 
 - If you are ready to finalize the documentation for a version, ensure that all your javadocs in the 'javadocs' folder in website/static are correct and the script replacestyles.sh has been run on them to adjust their css styling. Rename the javadocs folder to 'javadocs-version#' eg. 'javadocs-0.8.2' and make sure the link to the javadocs in projectnamejavadocs.md in your docs directory points to  https://ihmcroboticsdocs.github.io/projectreponame/javadocs-version#/overview-summary.html.
 - Run the command

@@ -20,6 +20,12 @@ npm install --global docusaurus-init
 
 Note: DO NOT run docusaurus-init as this will regenerate docusaurus template files
 
+- cd into websitedocs/website and run the command:
+
+npm install --save
+
+to generate the node_modules folder.
+
 - Make the changes mentioned above in "FRAMEWORK AND HOW TO NAVIGATE" to edit the websitedocs directory contents according to your project.
 - Create the documentation pages as md files and place them in the docs folder (or if you have static html pages put them in website/static).
 - If you want to make other edits, I suggest consulting https://docusaurus.io/docs/en/installation for more instructions. NOTE: The framework is set up in such a way that each project repo links to the main website but docusaurus is not really suited for integrating contributions from multiple repos into one website, we are able to get away with this through some fiddling with siteConfig.js and hard links, but you may find that some edits cause weird behavior).
@@ -44,13 +50,24 @@ yarn examples versions
 
 This will generate a versions.js file which will generate a versions page listing all the site versions. Customize this file by entering your the URL where past versions of your project can be viewed and accessed as well as links to their docs and release notes. This page can be accessed at https://ihmcroboticsdocs.github.io/projectreponame/versions.html
 
-- If you are ready to finalize the documentation for a version, ensure that all your javadocs in the 'javadocs' folder in website/static are correct and the script replacestyles.sh has been run on them to adjust their css styling. Rename the javadocs folder to 'javadocs-version#' eg. 'javadocs-0.8.2' and make sure the link to the javadocs in projectnamejavadocs.md in your docs directory points to  https://ihmcroboticsdocs.github.io/projectreponame/javadocs-version#/overview-summary.html.
-- Run the command
+Old Procedure without executing tasks in build.gradle:
 
-yarn run version <version-number>
+  - If you are ready to finalize the documentation for a version, ensure that all your javadocs in the 'javadocs' folder in website/static are correct and the script replacestyles.sh has been run on them to adjust their css styling. Rename the javadocs folder to 'javadocs-version#' eg. 'javadocs-0.8.2' and make sure the link to the javadocs in projectnamejavadocs.md in your docs directory points to  https://ihmcroboticsdocs.github.io/projectreponame/javadocs-version#/overview-summary.html.
+  - Run the command
 
-(for example yarn run version 0.8.3). This will preserve all documents in the docs directory and make them available as documentation for version 0.8.3. If this is the latest version, documents from this version will use the URL docs/doc1.html. For past versions, documents will use the URL docs/oldversionnumber/doc1.html.
-- Running the command again eg. yarn run version 0.9.0 will make version 0.9.0 the most recent set of documentation so documentation from version 0.8.3 will use the URL docs/0.8.3/doc1.html while documentation from version 0.9.0 will use docs/doc1.html.
+  yarn run version <version-number>
+
+  (for example yarn run version 0.8.3). This will preserve all documents in the docs directory and make them available as documentation for version 0.8.3. If this is the latest version, documents from this version will use the URL docs/doc1.html. For past versions, documents will use the URL docs/oldversionnumber/doc1.html.
+  - Running the command again eg. yarn run version 0.9.0 will make version 0.9.0 the most recent set of documentation so documentation from version 0.8.3 will use the URL docs/0.8.3/doc1.html while documentation from version 0.9.0 will use docs/doc1.html.
+
+New Procedure using tasks in build.gradle
+
+  - Ensure the javadocs are all generated (execute task genJavadocs if not)
+  - Ensure all the css styling for the javadocs have been configured (run the script replacestyles.sh if not)
+  - Execute the task javadocsVersion to rename the javadocs directory with the updated version number.
+  - Ensure that the link in projectnamejavadocs.md in your docs directory matches up with this new folder name ie. the URL that links to your javadocs should be in the form https://ihmcroboticsdocs.github.io/projectreponame/javadocs-version#/overview-summary.html.
+  - Execute the task docsVersion to create a new version in docusaurus of your documentation. 
+   
 - Upon creating a version, only the files from the docs directory and the sidebar files (sidebars.json) will be stored as part of that version. Therefore, static files (such as those in the img and javadocs directory) will not be associated to a version automatically by docusaurus. This is why we rename the javadocs folder, once all javadocs are generated and the replacestyles.sh is run on it, to specify the version it belongs to. If changes are made to be incorporated into a new version, new javadocs must be generated into website/static/javadocs and replacestyles.sh must then be run before renaming to javadocs-version# and updating the link in projectnamejavadocs.md accordingly. After this is done, a new version can then be created by running the command stated above.
 - All the documentation for a specific version are saved in website/versioned_docs/version-version# and all the sidebar files to a specific version are saved in website/versioned_sidebars.
 - See the euclid repo for an example; visit https://docusaurus.io/docs/en/versioning for more information.

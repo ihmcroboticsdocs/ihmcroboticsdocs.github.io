@@ -19,9 +19,11 @@ https://ihmcroboticsdocs.github.io/simulation-construction-set/docs/04-flyball-c
 https://ihmcroboticsdocs.github.io/simulation-construction-set/docs/05-flyball-governor-common-control-parameters.html
 https://ihmcroboticsdocs.github.io/simulation-construction-set/docs/06-description-and-analysis.html)
 
-#curl -fsS "${urls[8]}" && echo "SUCCESS" || echo "FAIL"
+exitCode=0
 
 for (( i = 0; i < ${#urls[@]}; ++i )); do
 	echo "Checking ${urls[i]}"
-	node snippetErrors.js ${urls[i]}
+	node snippetErrors.js ${urls[i]} || exitCode=1
 done
+
+exit $exitCode

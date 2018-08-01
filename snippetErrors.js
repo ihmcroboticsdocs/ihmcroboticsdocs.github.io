@@ -11,7 +11,6 @@ global.document = document;
 var $ = jQuery = require('jquery')(window);
 var matchIndex, allCodeBlocks;
 
-
 function checkSnippet() {
 	var script = document.getElementById("snippetscript");
 	var sources = eval(script.getAttribute('sources'));
@@ -24,6 +23,7 @@ function checkSnippet() {
 	// Throws error on invalid url
 	function notValidURL(response) {
 		if (!response.ok) {
+			process.exitCode = 1;
 			throw Error(response.statusText);
 		}
 		return response;
@@ -57,16 +57,14 @@ function checkSnippet() {
 								var codeBlock = allCodeBlocks[matchIndex];
 								var typeOfSnippet = codeBlock
 										.getAttribute('data-snippet');
-								var codeChunk = "";
 								var startIndex, endindex;
 
-								if (typeOfSnippet == "complete") {
-									codeChunk = dataFromSource;
-								} else if (typeOfSnippet == "portion") {
+								 if (typeOfSnippet == "portion") {
 									startIndex = dataFromSource.indexOf(codeBlock
 											.getAttribute('data-start'));
 									if(startIndex < 0) {
 										console.log("Start string not found at element id: " + codeBlock.id);
+										process.exitCode = 1;
                     allCodeBlocks.splice(matchIndex, 1);
                     matchIndex = allCodeBlocks
                       .findIndex(function(element) {
@@ -84,6 +82,7 @@ function checkSnippet() {
 												startIndex);
 										if(endIndex < 0) {
 											console.log("End string not found at element id: " + codeBlock.id);
+											process.exitCode = 1;
                       allCodeBlocks.splice(matchIndex, 1);
                       matchIndex = allCodeBlocks
                         .findIndex(function(element) {
@@ -95,8 +94,6 @@ function checkSnippet() {
 									}
 								}
 								} else if (typeOfSnippet == "multipleportions")
-								// If the snippet involves multiple portions,
-								// data-snippet="multipleportions"
 								{
 									var portions = eval(codeBlock
 											.getAttribute('data-portions'));
@@ -105,6 +102,7 @@ function checkSnippet() {
 												.indexOf(portions[j][0]);
 										if(startIndex < 0) {
 											console.log("Start string not found at element id: " + codeBlock.id);
+											process.exitCode = 1;
                       continue;
 										}
 										// Substring with start index to rest of
@@ -114,6 +112,7 @@ function checkSnippet() {
 													portions[j][1], startIndex);
 											if(endIndex < 0) {
 												console.log("End string not found at element id: " + codeBlock.id);
+												process.exitCode = 1;
                         continue;
 											}
 										}

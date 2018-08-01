@@ -93,7 +93,7 @@ CODE SNIPPET AUTOMATION:
 
 The script that is responsible for this is codesnippets.js, stored in websitedocs/website/static/snippetautomation. How it works:
 - Look at any of the quickstart docs or tutorials with code snippets as reference.
-- Each markdown file stored in the docs folder that requires a code snippet should include portions of html code incorporated with javascript. Wherever in the document that you need a certain code snippet, put an html chunk of the form "<pre><code data-url-index="indexnumberofsourceurlinarray" data-snippet="portionORcompleteORmultipleportions" data-start="startstringofsnippet" data-end="endstringofsnippet" id="uniqueidname"></code></pre>" in its place. Multiple code snippets in a document will have the same line with a unique id to identify it.
+- Each markdown file stored in the docs folder that requires a code snippet should include portions of html code incorporated with javascript. Wherever in the document that you need a certain code snippet, put an html chunk of the form:"<pre><code data-url-index="indexnumberofsourceurlinarray" data-snippet="portionORcompleteORmultipleportions" data-start="startstringofsnippet" data-end="endstringofsnippet" id="uniqueidname"></code></pre>" in its place. Multiple code snippets in a document will have the same line with a unique id to identify it.
 - The "data-" attributes in the code tag above should be filled out as follows:
   - The index of the url of the source code file (hosted on github) in the url array in the script at the bottom of the page.
 	- The unique Ids of the HTML elements (the parts in your markdown file where code snippets are supposed to go).

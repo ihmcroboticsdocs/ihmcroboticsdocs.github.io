@@ -31,14 +31,14 @@ to generate the node_modules folder.
 - If you want to make other edits, I suggest consulting https://docusaurus.io/docs/en/installation for more instructions. NOTE: The framework is set up in such a way that each project repo links to the main website but docusaurus is not really suited for integrating contributions from multiple repos into one website, we are able to get away with this through some fiddling with siteConfig.js and hard links, but you may find that some edits cause weird behavior).
 - Before you publish, you need to make sure that all your md files are rendered to html. To generate these html which will then be published in your gh-pages branch, cd into your website directory run the command: 'yarn run build' OR 'npm run build'.
 - To view changes locally, cd into your website directory and run the command:
-yarn start OR npm start OR docusaurus-start 
+yarn start OR npm start OR docusaurus-start
 - Load site at http://localhost:3000/ (it will automatically open up on your browser window) to view changes locally
 - If you are satisfied and ready to publish your changes to GitHub, commit and push all changes to GitHub and then cd into your website directory (with the package.json file) and run the command:
   GIT_USER=<GIT_USER> \
   CURRENT_BRANCH=master \
   USE_SSH=true \
   yarn run publish-gh-pages
-  
+
   Note: the current branch can be any branch that the relevant docs folder is in (for ihmcroboticsdocs.github.io the branch is source and the website is published to master. For project repos, the current branch is usually master and the website publishes to the gh-pages branch)
 
 - If the publishing does not work, try running 'yarn install' and then 'yarn run build' in your website directory and then repeat the step above.
@@ -66,8 +66,8 @@ New Procedure using tasks in build.gradle
   - Ensure all the css styling for the javadocs have been configured (run the script replacestyles.sh if not)
   - Execute the task javadocsVersion to rename the javadocs directory with the updated version number.
   - Ensure that the link in projectnamejavadocs.md in your docs directory matches up with this new folder name ie. the URL that links to your javadocs should be in the form https://ihmcroboticsdocs.github.io/projectreponame/javadocs-version#/overview-summary.html.
-  - Execute the task docsVersion to create a new version in docusaurus of your documentation. 
-   
+  - Execute the task docsVersion to create a new version in docusaurus of your documentation.
+
 - Upon creating a version, only the files from the docs directory and the sidebar files (sidebars.json) will be stored as part of that version. Therefore, static files (such as those in the img and javadocs directory) will not be associated to a version automatically by docusaurus. This is why we rename the javadocs folder, once all javadocs are generated and the replacestyles.sh is run on it, to specify the version it belongs to. If changes are made to be incorporated into a new version, new javadocs must be generated into website/static/javadocs and replacestyles.sh must then be run before renaming to javadocs-version# and updating the link in projectnamejavadocs.md accordingly. After this is done, a new version can then be created by running the command stated above.
 - All the documentation for a specific version are saved in website/versioned_docs/version-version# and all the sidebar files to a specific version are saved in website/versioned_sidebars.
 - See the euclid repo for an example; visit https://docusaurus.io/docs/en/versioning for more information.
@@ -80,8 +80,8 @@ Other things to note:
 - To upgrade to the most recent version of docusaurus, run 'npm update docusaurus'.
 
 Errors that may occur (these are the most prominent/frequent ones encountered so far):
-- If you receive an error when trying to publish changes or loading the site locally, check your docusaurus version. 
-- Type error (utils.getPath is not a function), try running 'yarn upgrade', then 'yarn install', then 'docusaurus-start' in your website directory. 
+- If you receive an error when trying to publish changes or loading the site locally, check your docusaurus version.
+- Type error (utils.getPath is not a function), try running 'yarn upgrade', then 'yarn install', then 'docusaurus-start' in your website directory.
 - "EBUSY" or "ECONN REFUSED" error: this happens during publishing usually when the branch that it is trying to publish to is open/active, try closing your IDE where you're editing your project repo.
 
 For more info: https://docusaurus.io/docs/en/installation
@@ -93,17 +93,21 @@ CODE SNIPPET AUTOMATION:
 
 The script that is responsible for this is codesnippets.js, stored in websitedocs/website/static/snippetautomation. How it works:
 - Look at any of the quickstart docs or tutorials with code snippets as reference.
-- Each markdown file stored in the docs folder that requires a code snippet should include portions of html code incorporated with javascript. Wherever in the document that you need a certain code snippet, put an html chunk of the form "<pre><code data-url-index="indexnumberofsourceurlinarray" data-snippet="portionORcomplete" data-start="startstringofsnippet" data-end="endstringofsnippet" id="uniqueidname"></code></pre>" in its place. Multiple code snippets in a document will have the same line with a unique id to identify it. 
+- Each markdown file stored in the docs folder that requires a code snippet should include portions of html code incorporated with javascript. Wherever in the document that you need a certain code snippet, put an html chunk of the form "<pre><code data-url-index="indexnumberofsourceurlinarray" data-snippet="portionORcompleteORmultipleportions" data-start="startstringofsnippet" data-end="endstringofsnippet" id="uniqueidname"></code></pre>" in its place. Multiple code snippets in a document will have the same line with a unique id to identify it.
 - The "data-" attributes in the code tag above should be filled out as follows:
+  - The index of the url of the source code file (hosted on github) in the url array in the script at the bottom of the page.
 	- The unique Ids of the HTML elements (the parts in your markdown file where code snippets are supposed to go).
-	- In the case that the code snippet is a portion of the source file rather than the complete text, the start and end strings that signify where the code snippet should begin and where it should end. (Rethink this, should have a cleaner system of getting portions).
+  - Whether the snippet is the complete source file, a single portion, or multiple portions of the same file.
+	- In the case that the code snippet is a portion of the source file rather than the complete text, the start and end strings that signify where the code snippet should begin and where it should end.
+  - In the case that the snippet is made of multiple portions, the data-start and data-end attributes will be replaced with the data-portions attribute that is an array that contains arrays of start and end strings for each portions eg. data-portions='[["public MobileRobot()","\n\n"],["// create first gimbal joint","/\*\*"]]'.
+    - One thing to note: the data-start and data-end attributes use html escape characters while the data-portions attribute uses javascript escape characters.
 - After these variables, the script at the bottom points to the external script codesnippets.js that is responsible for the code extraction and integration, as well as the parameter sources (an array of objects that each have a url and an array of snippet selections).The snippets array contains string arrays that each consist of the id of the html element where the snippet should be placed, the start string, and the end string. In the case that the whole source code file should be put on the webpage, the string array only contains the id.
 - codesnippets.js does the rest of the work given these parameters (fetching the data from the source code file given its URL, gets the portions needed from the source code files, converts the extracted text to a styled html format that makes use of highlight.js to better represent code snippets, and places this finished html code into the markdown document in the relevant spot.
-	
+
 The markdown file must have a script at the bottom of the form:
-<script src="../snippetautomation/codesnippets.js" sources=Array.of("urlofyourfirstsourcefile","urlofyoursecondsourcefile")></script>
+<script id="snippetscript" src="../snippetautomation/codesnippets.js" sources=Array.of("urlofyourfirstsourcefile","urlofyoursecondsourcefile")></script>
 
 - The 'sources' attribute is an array of the urls of your .java source code files in your project repo on GitHub, serviced through RawGit to obtain the raw .java files. RawGit has two mechanisms for obtaining the raw files from a GitHub url: development mode(new changes to GitHub reflected within minutes, but excessive traffic will be throttled and blacklisted) and production mode (has no traffic limit BUT has a permanent file link based on commit hash). The current docs are using development mode to allow for changes to the files to be updated automatically. The development mode urls are of the form https://rawgit.com/ihmcroboticsdocs/simulation-construction-set/master/src/main/java/us/ihmc/simulationconstructionset/Robot.java while production mode urls are https://cdn.rawgit.com/ihmcroboticsdocs/simulation-construction-set/02deb157/src/main/java/us/ihmc/simulationconstructionset/Robot.java which uses the state of the file at a specific commit.
 
-
-
+Error checking via bamboo:
+- There will be instances where the code snippets cannot automatically update themselves according to the source file (if the start and/or end strings no longer exist). This is usually the case for smaller snippets (such as the ones in the API pages that consist of one liners of method headers/variable declarations). In this repo there are two scripts: checkSnippets.sh and snippetErrors.js that check for these issues. Since the code extraction for the snippets only happens when its doc webpage is loaded, snippetErrors loads the webpage url (that contains the documentation with the snippet) and checks if all the snippets still exist in the source code files. If not, the issue and the id of the code element on the webpage with the faulty snippet is printed. The script checkSnippets runs snippetErrors for each documentation url that contains code snippets (so every time you make a new webpage that will contain snippets that come from a source file, add the webpage url to the code in the checkSnippets script). These scripts will make up a bamboo project that fails when at least one snippet error is found in the urls. This bamboo project's build can be accessed via the Rosie bot on slack.

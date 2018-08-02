@@ -27,3 +27,4 @@ for (( i = 0; i < ${#urls[@]}; ++i )); do
 done
 
 exit $exitCode
+  

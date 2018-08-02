@@ -120,7 +120,7 @@ function checkSnippet() {
 								}
 								allCodeBlocks.splice(matchIndex, 1);
 
-								matchIndex = allCodeBlocks
+								matchIndex = allCodeBlocks  
 										.findIndex(function(element) {
 											return element
 													.getAttribute('data-url-index') == urlIndex
